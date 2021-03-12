@@ -37,7 +37,3 @@ def decryptsimple(text):
             else:
                 s += i
         print(s.lower().capitalize())
-#
-# x = encrpyt()
-# print(x)
-decryptsimple("ZFBI. J'N QSFUUZ TVSF NZ DBU XPVME FBU NF")
