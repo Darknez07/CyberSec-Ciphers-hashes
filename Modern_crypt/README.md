@@ -1,7 +1,11 @@
 AES
 ===
 
-AES algorithm implementation using C.This can be used with different modes of operation.
+AES algorithm implementation using C.<br>
+This can be used with different block sizes 192,256,128.
+```
+Just uncomment  the box with intial permutation
+```
 
 # Example
 
