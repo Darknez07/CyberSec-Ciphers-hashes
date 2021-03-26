@@ -6,7 +6,7 @@
 version: 2
 updates:
   - package-ecosystem: "pip" # See documentation for possible values
-    directory: "/cryptozen/cryptozen" # Location of package manifests
+    directory: "/cryptozen" # Location of package manifests
     schedule:
       interval: "monthly"
     allow:
