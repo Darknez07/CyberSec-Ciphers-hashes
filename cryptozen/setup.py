@@ -30,7 +30,7 @@ setup(
     keywords=["cryptography", "Files"],
     packages=["cryptozen"],
     include_package_data=True,
-    install_requires=["sys", "random","math"],
+    install_requires=["sys", "random","math","concurrent"],
     entry_points={
         "console_scripts": [
             "cryptozen=cryptozen.__main__:main",
