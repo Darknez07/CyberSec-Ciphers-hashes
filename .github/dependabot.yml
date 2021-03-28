@@ -8,6 +8,6 @@ updates:
   - package-ecosystem: "pip" # See documentation for possible values
     directory: "/cryptozen" # Location of package manifests
     schedule:
-      interval: "monthly"
+      interval: "weekly"
     allow:
       - dependency-type: "all"
