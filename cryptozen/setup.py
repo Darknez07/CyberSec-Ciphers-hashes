@@ -27,10 +27,10 @@ setup(
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.9"
     ],
-    keywords=["cryptography", "Files"],
+    keywords=["cryptography", "Files","Algorithms"],
     packages=["cryptozen"],
     include_package_data=True,
-    install_requires=["sys", "random","math","concurrent"],
+    install_requires=["sys", "random","math","concurrent","matplotlib","time"],
     entry_points={
         "console_scripts": [
             "cryptozen=cryptozen.__main__:main",
