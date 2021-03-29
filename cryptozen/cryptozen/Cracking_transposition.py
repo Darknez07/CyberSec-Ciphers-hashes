@@ -37,5 +37,3 @@ def possible_ans():
             middle.writelines(T.Transpose(i).decrypt(j)+'\n')
         middle.close()
     print("The best 3 answers are saved in:{}, {}, {}".format(fnames[0],fnames[1],fnames[2]))
-
-possible_ans()
