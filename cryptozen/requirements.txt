@@ -2,6 +2,6 @@ math
 random
 concurrent
 unittest
-matplotlib==3.0.2
+matplotlib==3.4.0
 pprintpp==0.4.0
 simplejson==3.17.2
