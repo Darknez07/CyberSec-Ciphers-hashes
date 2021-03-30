@@ -30,7 +30,7 @@ setup(
     keywords=["cryptography", "Files","Algorithms"],
     packages=["cryptozen"],
     include_package_data=True,
-    install_requires=["sys", "random","math","concurrent","matplotlib","time"],
+    install_requires=["sys", "random","math","concurrent","matplotlib","time","simplejson","pprintpp"],
     entry_points={
         "console_scripts": [
             "cryptozen=cryptozen.__main__:main",
