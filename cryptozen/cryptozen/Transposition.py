@@ -1,5 +1,5 @@
-import math
-
+from Euclid import GCD
+import random
 
 class Transpose:
     def __init__(self, key):
@@ -8,14 +8,28 @@ class Transpose:
         self.decoded = ""
 
 
-    def encrypt(self, message):
+    def encrypt(self, message = None):
+        if message is None:
+            message = input('Enter message to encrypt: ')
+        if self.key == len(message):
+            while True:
+                x = random.randint(3,len(message))
+                if GCD(len(message), x).gcd() == 1:
+                    self.key = x
+                    break
+        else:
+            self.key = self.key % len(message)
         for i in range(self.key):
             self.encoded+=message[i::self.key]
         return self.encoded
 
 
     def decrypt(self, coded):
-        times = math.ceil(len(coded)/self.key)
+        if len(coded) % self.key == 0:
+            times = len(coded) // self.key
+        else:
+            times = (len(coded) // self.key) + 1
+
         kill = times*self.key - len(coded)
         plain = ['']*times
         col = 0
