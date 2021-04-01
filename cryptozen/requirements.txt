@@ -5,3 +5,4 @@ unittest
 matplotlib==3.4.0
 pprintpp==0.4.0
 simplejson==3.17.2
+coverage==5.5
