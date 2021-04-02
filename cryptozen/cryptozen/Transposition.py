@@ -1,4 +1,4 @@
-from Euclid import GCD
+from cryptozen.Euclid import GCD
 import random
 
 class Transpose:
