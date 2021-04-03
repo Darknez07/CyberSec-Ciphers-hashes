@@ -1,6 +1,6 @@
-import English as E
-import Transposition as T
-import Files as F
+import cryptozen.English as E
+import cryptozen.Transposition as T
+import cryptozen.Files as F
 
 def hack_transposition(message, quite=True):
     arr = dict()
