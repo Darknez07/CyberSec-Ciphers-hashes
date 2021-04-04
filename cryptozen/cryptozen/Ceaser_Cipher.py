@@ -2,14 +2,14 @@ from cryptozen.English import English as E
 # from distribution import Plots
 letters = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_`" \
           "abcdefghijklmnopqrstuvwxyz{|}~"
-letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 
 
 # .find(a letter) will give the position of the letter in the
 # string making it easier to identify the decryption
 # and encryption
 # When u add more letters but then your code barely works
-class Simple:
+class Ceaser:
     def __init__(self, k = 5):
         self.k = k
         self.encoded = ""
@@ -29,6 +29,8 @@ class Simple:
             your_str = input('Enter to encrypt: ')
         else:
             your_str = text
+        if your_str == "":
+            raise Exception("None value cannot be encrypted")
         for i in your_str:
             self.encoded_simple += letter[(letter.find(i) + self.k) % len(letter)]
         return self.encoded_simple
