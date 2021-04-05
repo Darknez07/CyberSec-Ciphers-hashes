@@ -20,6 +20,8 @@ class Ceaser:
             your_str = input('Enter to encrpyt: ')
         else:
             your_str = text
+        if your_str == "":
+            raise Exception("None value cannot be encrypted")
         for i in your_str:
             self.encoded += letters[(letters.find(i) + self.k) % len(letters)]
         return self.encoded
