@@ -1,8 +1,8 @@
 import unittest
 from cryptozen.Transposition import Transpose
 
-class Test(unittest.TestCase):
 
+class Test(unittest.TestCase):
     def test_encrypt(self):
         obj = Transpose(21)
         x = obj.key
@@ -44,6 +44,7 @@ class Test(unittest.TestCase):
         orig = "Code with reason and logic"
         val = obj.encrypt(orig)
         self.assertIsInstance(val, str)
+
 
 if __name__ == "__main__":
     unittest.main()

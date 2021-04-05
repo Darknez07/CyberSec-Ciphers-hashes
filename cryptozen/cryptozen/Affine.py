@@ -1,6 +1,7 @@
 import random
 import sys
 from cryptozen.Euclid import GCD
+
 # from cryptozen.distribution import Plots
 import time
 
@@ -44,11 +45,13 @@ class Affine:
 
     def check_key(self):
         if self.keyA == 1:
-            sys.exit('KeyA is 1 which is a weak key and easily crackable')
+            sys.exit("KeyA is 1 which is a weak key and easily crackable")
         if self.keyA == 0:
-            sys.exit('keyA is  0 choose a different key')
+            sys.exit("keyA is  0 choose a different key")
         if self.keyB < 0 or self.keyA < 0 or self.keyB > len(symbols) - 1:
-            sys.exit('KeyB is less than 0 or keyA is less than 0, Please choose different key')
+            sys.exit(
+                "KeyB is less than 0 or keyA is less than 0, Please choose different key"
+            )
 
     def encrypt(self, message):
         if message is "":

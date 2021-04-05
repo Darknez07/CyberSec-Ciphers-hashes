@@ -1,9 +1,9 @@
 import unittest
 import cryptozen.Ceaser_Cipher as Cs
-from cryptozen.Ceaser_Cipher import letter,letters
+from cryptozen.Ceaser_Cipher import letter, letters
+
 
 class Test(unittest.TestCase):
-
     def test_encrypt_simple(self):
         obj = Cs.Ceaser(12)
         ans = obj.encrypt_simple("Code in simple terms")
@@ -18,8 +18,8 @@ class Test(unittest.TestCase):
     def test_key_len(self):
         obj = Cs.Ceaser(122)
         ans = obj.encrypt_simple("Code for simple words and explain complex things")
-        self.assertNotEqual(obj.k,122)
-        self.assertTrue(0< obj.k < len(letter))
+        self.assertNotEqual(obj.k, 122)
+        self.assertTrue(0 < obj.k < len(letter))
 
     def test_zero_key(self):
         obj = Cs.Ceaser(len(letter))
@@ -45,5 +45,5 @@ class Test(unittest.TestCase):
         self.assertEqual(res, plain)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

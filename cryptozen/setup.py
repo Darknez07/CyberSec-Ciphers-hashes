@@ -5,7 +5,7 @@ from setuptools import setup
 # The directory containing this file
 this_directory = pathlib.Path(__file__).parent
 # The text of the README file
-with open(path.join(this_directory, 'Readme.md'), encoding='utf-8') as f:
+with open(path.join(this_directory, "Readme.md"), encoding="utf-8") as f:
     long_description = f.read()
 
 
@@ -25,13 +25,22 @@ setup(
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.9"
+        "Programming Language :: Python :: 3.9",
     ],
-    keywords=["cryptography", "Files","Algorithms"],
+    keywords=["cryptography", "Files", "Algorithms"],
     packages=["cryptozen"],
     include_package_data=True,
-    install_requires=["sys", "random","math","concurrent","setuptools"
-                      "matplotlib","time","simplejson","pprintpp","coverage"],
+    install_requires=[
+        "sys",
+        "random",
+        "math",
+        "concurrent",
+        "setuptools" "matplotlib",
+        "time",
+        "simplejson",
+        "pprintpp",
+        "coverage",
+    ],
     entry_points={
         "console_scripts": [
             "cryptozen=cryptozen.__main__:main",
