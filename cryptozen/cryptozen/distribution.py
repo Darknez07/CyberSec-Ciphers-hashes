@@ -27,7 +27,8 @@ class Plots:
         self.create_dist()
 
         if self.type == "bar":
-            plt.bar(range(len(self.distribution)), self.distribution, color="r")
+            plt.bar(range(len(self.distribution)),
+                    self.distribution, color="r")
             plt.xticks(range(len(self.distribution)), self.sets)
             plt.show()
 

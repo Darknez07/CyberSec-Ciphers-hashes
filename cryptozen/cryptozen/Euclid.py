@@ -1,6 +1,8 @@
 import time
 
 # import cryptozen.RSAkeys
+
+
 class GCD:
     def __init__(self, a, b):
         self.a = a
@@ -11,13 +13,13 @@ class GCD:
         p = self.b
         if p == 0 and q == 0:
             raise Exception("GCD of 0 with 0 is not defined")
-        if type(p) == float and p.is_integer() == False:
+        if isinstance(p, float) and p.is_integer() == False:
             raise Exception("This is not yet built into")
-        if type(q) == float and q.is_integer() == False:
+        if isinstance(q, float) and q.is_integer() == False:
             raise Exception("This is not yet built into")
-        if type(q) == float and q.is_integer() == True:
+        if isinstance(q, float) and q.is_integer() == True:
             q = int(q)
-        if type(p) == float and p.is_integer() == True:
+        if isinstance(p, float) and p.is_integer() == True:
             p = int(p)
         while q != 0:
             x = time.time()

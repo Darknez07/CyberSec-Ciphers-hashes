@@ -11,13 +11,15 @@ class Test(unittest.TestCase):
 
     def test_encrypt_simple_input(self):
         obj = Cs.Ceaser(12)
-        ans = obj.encrypt_simple("Cry for years and die with a tumour in your heart")
+        ans = obj.encrypt_simple(
+            "Cry for years and die with a tumour in your heart")
         for i in ans:
             self.assertIn(i, letter)
 
     def test_key_len(self):
         obj = Cs.Ceaser(122)
-        ans = obj.encrypt_simple("Code for simple words and explain complex things")
+        ans = obj.encrypt_simple(
+            "Code for simple words and explain complex things")
         self.assertNotEqual(obj.k, 122)
         self.assertTrue(0 < obj.k < len(letter))
 

@@ -5,7 +5,7 @@ from cryptozen.Euclid import GCD
 # from cryptozen.distribution import Plots
 import time
 
-symbols = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]
+symbols = """ !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]
 ^_`abcdefghijklmnopqrstuvwxyz{|}~"""
 
 
@@ -60,7 +60,10 @@ class Affine:
         for sym in message:
             if sym in symbols:
                 index = symbols.find(sym)
-                self.encoded += symbols[(index * self.keyA + self.keyB) % len(symbols)]
+                self.encoded += symbols[(index *
+                                         self.keyA +
+                                         self.keyB) %
+                                        len(symbols)]
         return self.encoded
 
     def decrypt(self, message):
@@ -72,5 +75,6 @@ class Affine:
         for sym in message:
             index = symbols.find(sym)
             if self.keyB and self.inv:
-                self.decoded += symbols[(index - self.keyB) * self.inv % len(symbols)]
+                self.decoded += symbols[(index - self.keyB)
+                                        * self.inv % len(symbols)]
         return self.decoded

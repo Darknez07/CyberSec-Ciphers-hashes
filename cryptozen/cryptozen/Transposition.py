@@ -20,7 +20,7 @@ class Transpose:
         else:
             self.key = self.key % len(message)
         for i in range(self.key):
-            self.encoded += message[i :: self.key]
+            self.encoded += message[i:: self.key]
         return self.encoded
 
     def decrypt(self, coded):

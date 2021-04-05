@@ -30,7 +30,9 @@ class Test(unittest.TestCase):
     def test_check_key_exit(self):
         with self.assertRaises(SystemExit) as cm:
             obj = a.Affine(1).encrypt("Kuch bhi lelo")
-        self.assertEqual(cm.exception.args[0], "keyA is  0 choose a different key")
+        self.assertEqual(
+            cm.exception.args[0],
+            "keyA is  0 choose a different key")
 
         with self.assertRaises(SystemExit) as cm:
             obj = a.Affine(97).encrypt("Kuch bhi karlo")

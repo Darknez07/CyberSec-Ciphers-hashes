@@ -49,7 +49,8 @@ class Ceaser:
         if your_str == "":
             raise Exception("None value cannot be encrypted")
         for i in your_str:
-            self.encoded_simple += letter[(letter.find(i) + self.k) % len(letter)]
+            self.encoded_simple += letter[(letter.find(i) +
+                                           self.k) % len(letter)]
         return self.encoded_simple
 
     def decrypt(self, text):
