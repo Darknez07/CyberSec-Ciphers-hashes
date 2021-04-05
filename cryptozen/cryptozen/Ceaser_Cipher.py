@@ -11,15 +11,23 @@ letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'
 # When u add more letters but then your code barely works
 class Ceaser:
     def __init__(self, k = 5):
+        if k == 0 or k is None:
+            k = 5
         self.k = k
         self.encoded = ""
         self.encoded_simple = ""
 
-    def encrpyt(self,text = None):
+
+    def encrypt(self,text = None):
         if text is None:
             your_str = input('Enter to encrpyt: ')
         else:
             your_str = text
+
+        self.k%=len(letters)
+        if self.k == 0:
+            self.k = 7
+
         if your_str == "":
             raise Exception("None value cannot be encrypted")
         for i in your_str:
@@ -31,6 +39,11 @@ class Ceaser:
             your_str = input('Enter to encrypt: ')
         else:
             your_str = text
+
+        self.k%=len(letter)
+        if self.k == 0:
+            self.k = 6
+
         if your_str == "":
             raise Exception("None value cannot be encrypted")
         for i in your_str:
@@ -61,8 +74,8 @@ class Ceaser:
                     s += letter[(letter.find(i) - j) % 26]
                 else:
                     s += i
+            s = s.replace("Z", " ")
             eng = E().check_words([s.lower().capitalize()])
-            print(s.lower().capitalize())
             if eng[0] > maxs:
                 maxs = eng[0]
                 ans = s.lower().capitalize()
