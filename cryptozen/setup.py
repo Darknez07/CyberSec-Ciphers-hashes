@@ -12,15 +12,15 @@ with open("Readme.md", encoding="utf-8") as f:
 # This call to setup() does all the work
 setup(
     name="cryptozen",
-    version="0.0.1",
+    version="0.0.4",
     description="Basic ciphers/Modern Ciphers",
     long_description=long_description,
-    url="https://github.com/Darknez07/CyberSec-Ciphers-hashes/cryptozen",
+    url="https://github.com/Darknez07/CyberSec-Ciphers-hashes/",
     author="Darknez07",
     author_email="darknez077@gmail.com",
     license="GNU",
     classifiers=[
-        "License :: OSI Approved :: GNU License",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.5",
