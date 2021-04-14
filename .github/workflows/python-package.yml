@@ -9,6 +9,9 @@ jobs:
   build-n-publish:
     name:  Python package Publish on TestPypi
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cryptozen
     strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9]
@@ -23,14 +26,12 @@ jobs:
       run: >-
         pip install
         twine wheel
-      working-directory: cryptozen
     - name: Build tarball and binaries
       run: >-
         python
         setup.py
         sdist
         bdist_wheel
-      working-directory: cryptozen
     - name: Publish on TestPypI
       uses: pypa/gh-action-pypi-publish@master
       with:
