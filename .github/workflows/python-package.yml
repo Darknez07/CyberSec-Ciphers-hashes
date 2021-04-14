@@ -34,7 +34,7 @@ jobs:
         --wheel
         --outdir dist/
         .
-    - name: Publish on TestPypi
+    - name: Publish on TestPypI
       uses: pypa/gh-action-pypi-publish@master
       with:
         password: ${{ secrets.TEST_PYPI_API_TOKEN }}
