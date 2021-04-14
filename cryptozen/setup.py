@@ -15,6 +15,7 @@ setup(
     version="0.0.4",
     description="Basic ciphers/Modern Ciphers",
     long_description=long_description,
+    long_description_content_type= "text/markdown",
     url="https://github.com/Darknez07/CyberSec-Ciphers-hashes/",
     author="Darknez07",
     author_email="darknez077@gmail.com",
