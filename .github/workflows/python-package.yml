@@ -37,6 +37,6 @@ jobs:
         twine
         upload
         -r testpyi
-        -u ${{ secrets.Username }}
-        -p ${{ secrets.Password }}
+        -u ${{ secrets.USERNAME }}
+        -p ${{ secrets.PASSWORD }}
         dist/*
