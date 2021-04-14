@@ -22,7 +22,7 @@ jobs:
     - name: Install and build
       run: >-
         pip install
-        twine
+        twine wheel
       working-directory: cryptozen
     - name: Build tarball and binaries
       run: >-
