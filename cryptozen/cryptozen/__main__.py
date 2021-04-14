@@ -1,22 +1,22 @@
 from cryptozen.Transposition import Transpose
-from cryptozen import Ceaser_Cipher
-from cryptozen import Files
+from cryptozen.Ceaser_Cipher import Ceaser
+# from cryptozen import Files
 import sys
 import os
 
 try:
     if sys.argv[1] == "--ceaser":
-        print(Ceaser_Cipher.encrpyt())
+        print(Ceaser().encrpyt())
 except:
     print("Usage 'python -m cryptozen --ceaser'")
-try:
-    if sys.argv[1] == "--file":
-        if os.path.exists(sys.argv[2]):
-            print(Files.Files().use_files(filename=sys.argv[2]))
-        else:
-            print("Filename wrong")
-except:
-    print("Usage 'python -m cryptozen --file filename.txt'")
+# try:
+#     if sys.argv[1] == "--file":
+#         if os.path.exists(sys.argv[2]):
+#             print(Files.Files().use_files(filename=sys.argv[2]))
+#         else:
+#             print("Filename wrong")
+# except:
+#     print("Usage 'python -m cryptozen --file filename.txt'")
 
 try:
     if sys.argv[1] == "--transpose" and int(sys.argv[2]):
