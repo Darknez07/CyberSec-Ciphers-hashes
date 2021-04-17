@@ -1,0 +1,42 @@
+name: Update and CI/CD
+
+on:
+  push:
+    tags:
+      v*
+
+jobs:
+  build-n-publish:
+    name:  Python package Publish on TestPypi
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: cryptozen
+    strategy:
+      matrix:
+        python-version: [3.7]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install and build
+      run: >-
+        pip install
+        twine wheel
+    - name: Build tarball and binaries
+      run: >-
+        python
+        setup.py
+        sdist
+        bdist_wheel
+    - name: Publish on TestPypI
+      run: >-
+        twine
+        upload
+        -r testpypi
+        -u ${{ secrets.USERNAME }}
+        -p ${{ secrets.PASSWORD }}
+        dist/*
