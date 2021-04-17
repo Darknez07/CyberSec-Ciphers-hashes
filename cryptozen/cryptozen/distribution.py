@@ -20,7 +20,7 @@ class Plots:
         for char in unique:
             self.distribution.append(chars.count(char))
 
-    def draw(self, message, types=None):
+    def draw(self, message, types=None, show = False):
         if message == "":
             raise Exception("Enter a message to get a graph")
         self.message = message
@@ -31,7 +31,8 @@ class Plots:
         if self.type == "bar":
             plt.bar(range(len(self.distribution)), self.distribution, color="r")
             plt.xticks(range(len(self.distribution)), self.sets)
-            plt.show()
+            if show:
+                plt.show()
 
         if self.type == "density":
             density = gaussian_kde(self.distribution)
@@ -40,7 +41,10 @@ class Plots:
             density._compute_covariance()
             plt.title("Density plot for your message")
             plt.plot(xs, density(xs))
-            plt.show()
+            if show:
+                plt.show()
+            else:
+                return xs
 
     def analysis(self, analyze=True):
         self.analyze = analyze
@@ -52,3 +56,19 @@ class Plots:
             plt.bar(range(len(f)),f,color='b')
             plt.xticks(range(len(f)),list(set(words)),rotation=90)
             plt.show()
+
+# if __name__ == "__main__":
+#     obj = Plots()
+#     f = open("../Notes.txt")
+#     wrds = nltk.sent_tokenize(f.read())
+#     f.close()
+#     print(wrds)
+#     i = 0
+#     for w in wrds:
+#         i+=1
+#         p = Plots()
+#         p.draw(w)
+#         p.analysis()
+#         if i > 7:
+#             break
+#     # print(obj.message)
