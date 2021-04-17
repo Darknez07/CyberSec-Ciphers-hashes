@@ -52,19 +52,3 @@ class Plots:
             plt.bar(range(len(f)),f,color='b')
             plt.xticks(range(len(f)),list(set(words)),rotation=90)
             plt.show()
-
-# if __name__ == "__main__":
-#     obj = Plots()
-#     f = open("../Notes.txt")
-#     wrds = nltk.sent_tokenize(f.read())
-#     f.close()
-#     print(wrds)
-#     i = 0
-#     for w in wrds:
-#         i+=1
-#         p = Plots()
-#         p.draw(w)
-#         p.analysis()
-#         if i > 7:
-#             break
-#     # print(obj.message)
