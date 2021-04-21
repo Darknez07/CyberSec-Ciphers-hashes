@@ -18,25 +18,24 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Run a one-line script
-        run: >-
-          usermod
-          -aG
-          sudo
-          runs
-        working-directory: shuttle
-      - name: Add to sudoers
-        run: >-
-          echo "runs  ALL=(ALL) NOPASSWD:ALL" 
-          | sudo tee /etc/sudoers.d/username
-        working-directory: shuttle
+#       - name: Run a one-line script
+#         run: >-
+#           usermod
+#           -aG
+#           sudo
+#           runs
+#         working-directory: shuttle
+#       - name: Add to sudoers
+#         run: >-
+#           echo "runs  ALL=(ALL) NOPASSWD:ALL" 
+#           | sudo tee /etc/sudoers.d/username
+#         working-directory: shuttle
 
       # Runs a set of commands using the runners shell
       - name: Run Something
-        run: |
-          su - runs
+        run: >-
           sudo bash shuttle.sh
         working-directory: shuttle
