@@ -1,0 +1,42 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Check shuttle
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+defaults:
+ run:
+  working-directory: shuttle
+  shell: bash
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.7
+      - name: Install python
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Install dependicies
+        run: |
+         sudo apt-get update
+         sudo apt-get install nmap
+         nmap --version
+         sudo apt-get install traceroute
+
+      # Runs a set of commands using the runners shell
+      - name: Run Something
+        run: |
+          sudo bash shuttle.sh www.github.com
+          python process.py
