@@ -12,7 +12,7 @@ for f in $FLAGS
 do
     sudo traceroute "$f" -p 443 $1 -N 32 -t 8 > Treport.txt
     grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' Treport.txt > "${FILE}${f}.txt"
-    python3 try.py "$f"
+    python3 helper.py "$f"
     rm Treport.txt
     uniq "${FILE}${f}.txt" > "${FILE}${f}1.txt"
     rm "${FILE}${f}.txt"
