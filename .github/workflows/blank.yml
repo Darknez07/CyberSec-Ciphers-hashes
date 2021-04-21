@@ -29,18 +29,7 @@ jobs:
          sudo apt-get update
          sudo apt-get install nmap
          nmap --version
-#       - name: Run a one-line script
-#         run: >-
-#           usermod
-#           -aG
-#           sudo
-#           runs
-#         working-directory: shuttle
-#       - name: Add to sudoers
-#         run: >-
-#           echo "runs  ALL=(ALL) NOPASSWD:ALL" 
-#           | sudo tee /etc/sudoers.d/username
-#         working-directory: shuttle
+         sudo apt-get install traceroute
 
       # Runs a set of commands using the runners shell
       - name: Run Something
