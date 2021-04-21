@@ -9,7 +9,10 @@ on:
   pull_request:
     branches: [ master ]
 
-  workflow_dispatch:
+defaults:
+ run:
+  working-directory: shuttle
+  shell: bash
 
 jobs:
 
@@ -20,7 +23,12 @@ jobs:
     steps:
 #       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      
+      - name: Install dependicies
+        run: |
+         sudo apt-get update
+         sudo apt-get install nmap
+         nmap --version
 #       - name: Run a one-line script
 #         run: >-
 #           usermod
@@ -38,4 +46,3 @@ jobs:
       - name: Run Something
         run: >-
           sudo bash shuttle.sh
-        working-directory: shuttle
