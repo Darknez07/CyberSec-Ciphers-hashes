@@ -11,6 +11,8 @@ class Transpose:
     def encrypt(self, message=None):
         if message is None:
             message = input("Enter message to encrypt: ")
+        if message == "":
+            raise Exception("Please Enter a message to encode")
         if self.key == len(message):
             while True:
                 x = random.randint(3, len(message))
@@ -20,7 +22,7 @@ class Transpose:
         else:
             self.key = self.key % len(message)
         for i in range(self.key):
-            self.encoded += message[i:: self.key]
+            self.encoded += message[i :: self.key]
         return self.encoded
 
     def decrypt(self, coded):
@@ -28,7 +30,8 @@ class Transpose:
             times = len(coded) // self.key
         else:
             times = (len(coded) // self.key) + 1
-
+        if coded == "":
+            raise Exception("Enter a value to be decoded")
         kill = times * self.key - len(coded)
         plain = [""] * times
         col = 0
@@ -41,3 +44,6 @@ class Transpose:
                 row += 1
         self.decoded = "".join(plain)
         return self.decoded
+
+    def check_if_transposition(self):
+        pass
