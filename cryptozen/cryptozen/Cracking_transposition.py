@@ -1,45 +1,61 @@
 import cryptozen.English as E
 import cryptozen.Transposition as T
-import cryptozen.Files as F
+from concurrent.futures import ThreadPoolExecutor
 
+class Hack_transposition:
+    def __init__(self, threshold=200):
+        self.fnames = []
+        self.threshold = threshold
+        self.eng = E.English()
 
-def hack_transposition(message, quite=True):
-    arr = dict()
-    eng = E.English()
-    key_ans = 0
-    dummy = tuple({0, 0})
-    for words in message:
-        final = ""
-        for key in range(1, len(words)):
+    def do_transpose_key(self, key, message):
+        ans = T.Transpose(key)
+        check = ans.decrypt(message)
+        chunks = check.split('\n')
+        res = [0, 0]
+        with ThreadPoolExecutor(100) as ex:
+            out = ex.map(self.eng.check_words, [[chunk] for chunk in chunks])
+        for i in list(out):
+            res[0]+=i[0]
+            res[1]+=i[1]
+        return res, check
+
+    def hack_transposition(self, message, quite=True):
+        arr = dict()
+        key_ans = 0
+        dummy = tuple({0, 0})
+        if message == "":
+            raise Exception("Message cannot be empty")
+        for key in range(1, len(message)):
+            final = None
             if not quite:
                 print("Trying for key={}".format(key))
-            ans = T.Transpose(key)
-            check = ans.decrypt(words)
-            res = eng.check_words([check])
+            res,check = self.do_transpose_key(key, message)
+            # print(res)
             if res[0] > dummy[0]:
                 key_ans = key
                 final = check
             dummy = res
-        arr[final] = key_ans
-    return arr
+            if final:
+                arr[tuple(dummy)] = [final, key_ans]
+            if key > self.threshold:
+                break
+        return arr
 
 
-def possible_ans():
-    k = F.Files().use_files(11, True, filename="Notes.txt")
-    mid = hack_transposition(k)
-    ans = {i: 0 for i in set(mid.values())}
-    for i in mid.values():
-        ans[i] += 1
-    inter = sorted(ans)
-    fnames = []
-    for i in inter[:3]:
-        fnames.append("Ans " + str(i) + ".txt")
-        middle = open("Ans " + str(i) + ".txt", "w+")
-        for j in k:
-            middle.writelines(T.Transpose(i).decrypt(j) + "\n")
-        middle.close()
-    print(
-        "The best 3 answers are saved in:{}, {}, {}".format(
-            fnames[0], fnames[1], fnames[2]
-        )
-    )
+    def possible_ans(self, k: str):
+        # k = F.Files().use_files(11, True, filename="Notes.txt")
+        if k == "" or k is None:
+            raise Exception("Empty string is not allowed")
+        mid = self.hack_transposition(k)
+        inter = sorted(mid.items(), key=lambda k:k[0], reverse=False)
+        for i in inter[:5]:
+            self.fnames.append("Ans " + str(i[1][1]) + ".txt")
+            middle = open("Ans " + str(i[1][1]) + ".txt", "w+")
+            middle.writelines(T.Transpose(i[1][1]).decrypt(k))
+            middle.close()
+        st = "The best "+str(len(self.fnames))+" answers are saved in:"
+        for i in self.fnames:
+            st+=str(i)
+            st+=","
+        print(st[:-1])
