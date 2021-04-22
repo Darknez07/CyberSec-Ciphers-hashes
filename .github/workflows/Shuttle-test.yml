@@ -3,7 +3,8 @@
 name: Check shuttle
 on:
   push:
-    branches: [ master ]
+    paths:
+      - "shuttle/**"
   pull_request:
     branches: [ master ]
 
