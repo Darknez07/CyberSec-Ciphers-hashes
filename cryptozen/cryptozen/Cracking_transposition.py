@@ -32,10 +32,10 @@ class Hack_transposition:
                 print("Trying for key={}".format(key))
             res,check = self.do_transpose_key(key, message)
             # print(res)
-            if res[0] > dummy[0]:
+            if res[0] > dummy[0] and res[0] > (1/len(message)):
                 key_ans = key
                 final = check
-            dummy = res
+                dummy = res
             if final:
                 arr[tuple(dummy)] = [final, key_ans]
             if key > self.threshold:
@@ -48,7 +48,7 @@ class Hack_transposition:
         if k == "" or k is None:
             raise Exception("Empty string is not allowed")
         mid = self.hack_transposition(k)
-        inter = sorted(mid.items(), key=lambda k:k[0], reverse=False)
+        inter = sorted(mid.items(), key=lambda k:k[0])
         for i in inter[:5]:
             self.fnames.append("Ans " + str(i[1][1]) + ".txt")
             middle = open("Ans " + str(i[1][1]) + ".txt", "w+")
@@ -57,5 +57,5 @@ class Hack_transposition:
         st = "The best "+str(len(self.fnames))+" answers are saved in:"
         for i in self.fnames:
             st+=str(i)
-            st+=","
-        print(st[:-1])
+            st+=", "
+        print(st[:-2])
