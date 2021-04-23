@@ -1,0 +1,12 @@
+import unittest
+from cryptozen.RSAkeys import low_primal_test
+import sympy as smp
+class Test(unittest.TestCase):
+
+    def test_low_prime(self):
+        ans = low_primal_test(12)
+        self.assertEqual(len(bin(ans)[2:]), 12)
+        self.assertTrue(smp.isprime(ans))
+
+if __name__ == '__main__':
+    unittest.main()
