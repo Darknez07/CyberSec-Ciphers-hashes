@@ -3,7 +3,7 @@ import numpy as np
 from scipy.stats import gaussian_kde
 import nltk
 import os
-
+nltk.download('punkt')
 class Plots:
     # by default a bar graph of token counts
     def __init__(self):
