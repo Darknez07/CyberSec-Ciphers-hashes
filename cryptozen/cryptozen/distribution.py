@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy.stats import gaussian_kde
 import nltk
+import os
 
 class Plots:
     # by default a bar graph of token counts
@@ -46,7 +47,7 @@ class Plots:
             else:
                 return xs
 
-    def analysis(self, analyze=True):
+    def analysis(self, analyze=True, show=False):
         self.analyze = analyze
         if self.message == "":
             raise Exception("Plot a graph first with using draw() function")
@@ -55,7 +56,24 @@ class Plots:
             f = nltk.probability.FreqDist(word.lower() for word in words).values()
             plt.bar(range(len(f)),f,color='b')
             plt.xticks(range(len(f)),list(set(words)),rotation=90)
-            plt.show()
+            if show:
+                plt.show()
+            else:
+                return f
+
+    def analyze_with_file(self, file: str, return_words = False, return_freq = True):
+        if file == "":
+            raise Exception("We need a filename")
+        if not os.path.exists(file):
+            raise Exception("File does not exist in the same directory")
+        f = open(file)
+        wrds = nltk.sent_tokenize(f.read())
+        f.close()
+        if return_words:
+            return wrds
+        freq = nltk.FreqDist(words.lower() for words in wrds).values()
+        if return_freq:
+            return freq
 
 # if __name__ == "__main__":
 #     obj = Plots()
