@@ -38,5 +38,24 @@ class Test(unittest.TestCase):
             if not (0<= i <= 19):
                 self.assertEqual(1, 0)
 
+    def test_for_analysis(self):
+        obj = Plots()
+        obj.message = "Something is fishy and cryptography is booming"
+        s = obj.analysis()
+        s = list(s)
+        for x in s:
+            if not (1 <= x <= len(obj.message)):
+                self.assertEqual(1, 0)
+
+    def test_files_analysis(self):
+        obj = Plots()
+        freq = obj.analyze_with_file("Notes.txt", return_words=True, return_freq=False)
+        f = open("Notes.txt")
+        tokens = set(f.read())
+        for x in f:
+            if x not in tokens:
+                self.assertEqual(1, 0)
+        f.close()
+
 if __name__ == '__main__':
     unittest.main()
