@@ -44,7 +44,6 @@ class Hack_transposition:
 
 
     def possible_ans(self, k: str):
-        # k = F.Files().use_files(11, True, filename="Notes.txt")
         if k == "" or k is None:
             raise Exception("Empty string is not allowed")
         mid = self.hack_transposition(k)

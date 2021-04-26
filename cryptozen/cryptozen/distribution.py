@@ -76,19 +76,3 @@ class Plots:
         freq = nltk.FreqDist(words.lower() for words in wrds).values()
         if return_freq:
             return freq
-
-# if __name__ == "__main__":
-#     obj = Plots()
-#     f = open("../Notes.txt")
-#     wrds = nltk.sent_tokenize(f.read())
-#     f.close()
-#     print(wrds)
-#     i = 0
-#     for w in wrds:
-#         i+=1
-#         p = Plots()
-#         p.draw(w)
-#         p.analysis()
-#         if i > 7:
-#             break
-#     # print(obj.message)
