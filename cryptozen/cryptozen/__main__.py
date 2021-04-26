@@ -1,6 +1,5 @@
 from cryptozen.Transposition import Transpose
 from cryptozen.Ceaser_Cipher import Ceaser
-# from cryptozen import Files
 import sys
 import os
 
@@ -14,19 +13,6 @@ except:
 
 if done:
     sys.exit()
-
-# try:
-#     if sys.argv[1] == "--file":
-#         if os.path.exists(sys.argv[2]):
-#             print(Files.Files().use_files(filename=sys.argv[2]))
-#         else:
-#             print("Filename wrong")
-#         done = True
-# except:
-#     print("Usage 'python -m cryptozen --file filename.txt'")
-
-# if done:
-#     sys.exit()
 
 try:
     if sys.argv[1] == "--transpose" and int(sys.argv[2]):
