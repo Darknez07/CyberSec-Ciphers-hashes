@@ -1,8 +1,11 @@
 import unittest
-from cryptozen.RSAkeys import low_primal_test, get_random_num, high_primal_test
+from cryptozen.RSAkeys import low_primal_test, get_random_num, high_primal_test, isMillerRabinPassed
 import sympy as smp
 import random
+import time
+
 class Test(unittest.TestCase):
+
     @unittest.skip("This might fail because it is low prime test")
     def test_low_prime(self):
         ans = low_primal_test(12)
@@ -35,8 +38,28 @@ class Test(unittest.TestCase):
             if smp.isprime(ans):
                 break
         self.assertEqual(len(bin(ans)[2:]), 12)
-        # self.assertTrue(smp.isprime(ans))
         self.assertEqual(high_primal_test(ans), ans)
+
+    def test_Rabin_Miller(self):
+        i = 0
+        while i!=10:
+            prm = smp.randprime(2**1000, 2**1024)
+            self.assertTrue(isMillerRabinPassed(prm))
+            i+=1
+        # Testing with more rounds 40
+
+    def test_rabin_miller_more_rounds(self):
+        i = 0
+        t = time.time()
+        error = True
+        while i!=10:
+            if (time.time() - t)*1000 > 100:
+                error = False
+                break
+            prm = smp.randprime(2**2048, 2**2049)
+            self.assertTrue(isMillerRabinPassed(prm, 40))
+            i+=1
+        self.assertFalse(error)
 
 if __name__ == '__main__':
     unittest.main()
