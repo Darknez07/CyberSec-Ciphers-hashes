@@ -120,8 +120,8 @@ def do_work(n):
     return -1
 
 
-def isMillerRabinPassed(mrc):
-    """Run 20 iterations of Rabin Miller Primality test"""
+def isMillerRabinPassed(mrc,n_trails = 20):
+    """Run n_trails intially 20 iterations of Rabin Miller Primality test"""
     maxDivisionsByTwo = 0
     ec = mrc - 1
     while ec % 2 == 0:
@@ -138,7 +138,7 @@ def isMillerRabinPassed(mrc):
         return True
 
     # Set number of trials here
-    numberOfRabinTrials = 20
+    numberOfRabinTrials = n_trails
     for i in range(numberOfRabinTrials):
         round_tester = random.randrange(2, mrc)
         if trialComposite(round_tester):
