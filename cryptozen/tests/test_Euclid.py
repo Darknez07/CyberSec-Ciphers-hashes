@@ -4,7 +4,7 @@ import random
 import unittest
 
 import cryptozen.Euclid as E
-# import cryptozen.RSAkeys as RSAkeys
+import cryptozen.RSAkeys as RSAkeys
 
 
 class Test(unittest.TestCase):
@@ -72,29 +72,29 @@ class Test(unittest.TestCase):
             if count == 10:
                 break
 
-    # def test_extended_gcd_primes(self):
-    #     count = 0
-    #     start = 8
-    #     while count != 7:
-    #         a, b = RSAkeys.get_primes(start)
-    #         ans = E.GCD(a, b).extended_gcd()
-    #         if ans is None:
-    #             a, b = RSAkeys.get_primes(start)
-    #             ans = E.GCD(a, b).extended_gcd()
-    #         self.assertEqual(E.GCD(ans * a, b).gcd(), 1)
-    #         count += 1
-    #         start *= 2
+    def test_extended_gcd_primes(self):
+        count = 0
+        start = 8
+        while count != 7:
+            a, b = RSAkeys.get_primes(start)
+            ans = E.GCD(a, b).extended_gcd()
+            if ans is None:
+                a, b = RSAkeys.get_primes(start)
+                ans = E.GCD(a, b).extended_gcd()
+            self.assertEqual(E.GCD(ans * a, b).gcd(), 1)
+            count += 1
+            start *= 2
 
-    # def test_limit_extended_gcd(self):
-    #     count = 0
-    #     start = 8
-    #     while count != 7:
-    #         a, b = RSAkeys.get_primes(start)
-    #         ans = E.GCD(a, b).extended_gcd()
-    #         self.assertIsNotNone(ans)
-    #         self.assertIsInstance(ans, int)
-    #         count += 1
-    #         start *= 2
+    def test_limit_extended_gcd(self):
+        count = 0
+        start = 8
+        while count != 7:
+            a, b = RSAkeys.get_primes(start)
+            ans = E.GCD(a, b).extended_gcd()
+            self.assertIsNotNone(ans)
+            self.assertIsInstance(ans, int)
+            count += 1
+            start *= 2
 
     def test_composite_case_extended_gcd(self):
         count = 0
