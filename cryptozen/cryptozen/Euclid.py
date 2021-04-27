@@ -12,13 +12,13 @@ class GCD:
         p = self.b
         if p == 0 and q == 0:
             raise Exception("GCD of 0 with 0 is not defined")
-        if isinstance(p, float) and p.is_integer() == False:
+        if type(p) == float and p.is_integer() == False:
             raise Exception("This is not yet built into")
-        if isinstance(q, float) and q.is_integer() == False:
+        if type(q) == float and q.is_integer() == False:
             raise Exception("This is not yet built into")
-        if isinstance(q, float) and q.is_integer() == True:
+        if type(q) == float and q.is_integer() == True:
             q = int(q)
-        if isinstance(p, float) and p.is_integer() == True:
+        if type(p) == float and p.is_integer() == True:
             p = int(p)
         while q != 0:
             x = time.time()
