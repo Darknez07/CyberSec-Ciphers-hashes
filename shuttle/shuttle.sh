@@ -3,8 +3,8 @@ echo "----OPEN TCP PORTS ARE AS FOLLOWS----"
 nmap -sT $1 | grep -e ^[0-9].*
 printf "\n"
 #nmap -A $1 | grep -e Potentially
-#nmap -A --script=exploit -d 192.168.43.39
-#nmap -A --script=intrusive -d 192.168.43.39
+#nmap -A --script=exploit -d $1
+#nmap -A --script=intrusive -d $1
 #nmap -A --osscan-guess --fuzzy --script=broadcast-ping -d $1
 FLAGS="-I -T -U"
 FILE="out"
@@ -42,7 +42,7 @@ done
 #echo "IPv4 DNS Server of target is: $(grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' out.txt)"
 #rm out.txt
 #printf "\n"
-#nmap -sC 192.168.43.39
+#nmap -sC $1
 
 #Do a whois query
 #Use process.py
