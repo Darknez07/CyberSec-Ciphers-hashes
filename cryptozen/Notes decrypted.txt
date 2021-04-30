@@ -1,0 +1,37 @@
+ITET-> Organization set up for 
+rules
+
+Data Authentication--> The connection protocol protects data.
+
+Entity Authentication--> The connectionless protocol protects entity of communication.
+
+Access Control--> Permission control protocols.
+
+Encipherment--> a.) Cryptography
+b.) Steanography
+
+a.) One form to Another form
+b.) Hide the data from the others.
+
+Data Integrity--> CRC, CheckSum, Hamming codes
+
+Traffic Padding--> The traffic padding to prevent the channel of communication.
+
+Classification--> Type of operation
+Number of keys
+The way in which plain text is processed.
+
+Substitution--> Subsitute an encoded character, by some logic or function.
+Transposition--> The chracter is written a different way but the content remains the same but written funny.
+
+Symmetric Encryption
+y r E(k)(X)
+X r D(k)(y)	
+Algo is public.
+16-17th Century
+	Playfair--> Substitution Cipher.
+	Ceaser Cipher-> Substitution Cipher
+
+Vignere Cipher--> Two methods
+With table(Single Key)
+With key(Multiple Keys)	
