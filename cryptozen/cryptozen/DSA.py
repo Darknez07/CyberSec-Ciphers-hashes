@@ -3,33 +3,34 @@ from Euclid import GCD
 import math
 import random
 import os
-# Step-1:-- GET PRIMES
-p, q = get_primes()
+def RSA_and_save():
+    # Step-1:-- GET PRIMES
+    p, q = get_primes()
 
-# Step-2:-- GET N
-n = p * q
+    # Step-2:-- GET N
+    n = p * q
 
-# Step-3:-- GET Phi
-phi = (p - 1) * (q - 1)
+    # Step-3:-- GET Phi
+    phi = (p - 1) * (q - 1)
 
-# Step 4:-- GET Public key
-rn = random.randint(2**123, 2**256)
-for e in range(rn, phi):
-    if math.gcd(e, phi) == 1:
-        break
+    # Step 4:-- GET Public key
+    rn = random.randint(2**123, 2**256)
+    for e in range(rn, phi):
+        if math.gcd(e, phi) == 1:
+            break
 
-# Step 5:-- GET Private key
-d = GCD(e, phi).extended_gcd()
+    # Step 5:-- GET Private key
+    d = GCD(e, phi).extended_gcd()
 
-f = open('privatekey_for_dsa.txt','w+')
-f.writelines([str(d)])
-f.close()
-f = open('nval_dsa.txt','w+')
-f.writelines([str(n)])
-f.close()
-f = open('public_key_for_dsa.txt','w+')
-f.writelines([str(e)])
-f.close()
+    f = open('privatekey_for_dsa.txt','w+')
+    f.writelines([str(d)])
+    f.close()
+    f = open('nval_dsa.txt','w+')
+    f.writelines([str(n)])
+    f.close()
+    f = open('public_key_for_dsa.txt','w+')
+    f.writelines([str(e)])
+    f.close()
 
 def sign(message, private, n):
     processed_message = list(map(ord, list(message)))
@@ -66,6 +67,7 @@ def store_xor():
     print("Final File hash saved as DSA_value_of_file.txt")
     print()
 
+RSA_and_save()
 # do_SHA(message)
 file = input('Enter the filename with extension: ')
 if os.path.exists(file):
