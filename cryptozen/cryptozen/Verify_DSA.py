@@ -5,14 +5,17 @@ if os.path.exists(file):
     f = open(file, "r")
 else:
     raise Exception("Please enter the correct filename")
+
 q = open("DSA_value_of_file.txt", "r")
 p = open("DSA_encrypted.txt", "r")
 pub = open("public_key_for_dsa.txt", "r")
 pkey = int(pub.read())
 nv = open("nval_dsa.txt", "r")
 n = int(nv.read())
+
 nv.close()
 pub.close()
+
 vals = []
 i = 0
 for l in p.read().split("\n")[:-1]:
@@ -25,6 +28,7 @@ for l in p.read().split("\n")[:-1]:
     i += 1
     vals.append(ans)
 p.close()
+
 if int(q.read(), 16) != fzor:
     print("File was tampered")
 
