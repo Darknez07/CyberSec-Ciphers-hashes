@@ -1,7 +1,6 @@
 import random
 import sys
 
-
 def get_512_bits(message, conv=False):
     string = ""
     if conv == False:
@@ -102,6 +101,7 @@ def do_SHA(message=None, types="string"):
     H[2] = H[2] << 64 | H[2] >> (160 - 64)
     H[3] = H[3] << 32 | H[3] >> (160 - 32)
     result = H[0] | H[1] | H[2] | H[3] | H[4]
+
     if len(bin(result)[2:]) > 160:
         result = int(bin(result)[2:][:160], 2)
     if show_res:
