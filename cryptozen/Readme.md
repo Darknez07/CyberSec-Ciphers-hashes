@@ -6,3 +6,7 @@
 * Thus making probablistic guessess on the possible answers
 * A good found ``python setup.py sdist``
     * Distributes the package files such that to pip install from a tarball file(linux base gzip files)
+
+## Usage
+    * This is important note for usage of this library
+    * To use just ``python -m cryptozen --help``
