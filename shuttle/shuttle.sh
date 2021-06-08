@@ -1,10 +1,9 @@
+# !bin/bash
 # sshuttle --method=ipfw -D -v 0\0
 echo "----OPEN TCP PORTS ARE AS FOLLOWS----"
 nmap -sT $1 | grep -e ^[0-9].*
 printf "\n"
 #nmap -A $1 | grep -e Potentially
-#nmap -A --script=exploit -d $1
-#nmap -A --script=intrusive -d $1
 #nmap -A --osscan-guess --fuzzy --script=broadcast-ping -d $1
 FLAGS="-I -T -U"
 FILE="out"
@@ -38,18 +37,15 @@ do
         fi
     done < "${f}"
 done
-#echo $(nmap -A --script=broadcast-ping -d $1 | grep -e "DNS server") > out.txt
-#echo "IPv4 DNS Server of target is: $(grep -oE '([0-9]{1,3}\.){3}[0-9]{1,3}' out.txt)"
-#rm out.txt
-#printf "\n"
-#nmap -sC $1
 
 #Do a whois query
+
 #Use process.py
-#Before that extract all
-#info
+
+#Before that extract all info
 
 printf "The upcoming or following scan is helpful: \n"
 printf "Notice the output carefully \n"
 nmap -p80 --script ipidseq -iR 1000 $1 > outputofscan.txt
+python3 process.py
 echo "---END---"
