@@ -38,12 +38,6 @@ do
     done < "${f}"
 done
 
-#Do a whois query
-
-#Use process.py
-
-#Before that extract all info
-
 printf "The upcoming or following scan is helpful: \n"
 printf "Notice the output carefully \n"
 nmap -p80 --script ipidseq -iR 1000 $1 > outputofscan.txt
