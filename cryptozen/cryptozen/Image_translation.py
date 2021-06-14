@@ -32,7 +32,7 @@ class Scaling:
             data+=self.min
             return data
 
-def get_vals():
+def get_rsa_vals():
     # Step-1:-- GET PRIMES
     p, q = get_primes(64)
 
@@ -51,7 +51,7 @@ def get_vals():
     d = GCD(e, phi).extended_gcd()
     return d,e,n
 
-d,e,n = get_vals()
+d,e,n = get_rsa_vals()
 
 def encrypt(x):
     return pow(int(x), e, n)
