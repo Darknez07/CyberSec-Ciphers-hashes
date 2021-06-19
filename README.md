@@ -8,4 +8,5 @@ This repository is meant for the tools, rules, accessories for hash functions, S
 * Published on testPyPi currently with limited CLI but as package it is complete
 * ``Note some linux users might have to manually install all packages due to version conflicts``
 * Install with ``pip install -i https://test.pypi.org/simple/ cryptozen==0.0.7``
-[mkdnlink]: TODO.md
+
+[TODO file](TODO.md)
