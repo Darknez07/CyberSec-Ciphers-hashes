@@ -3,5 +3,5 @@ pprintpp==0.4.0
 simplejson==3.17.6
 coverage==6.2
 scipy==1.7.3
-nltk==3.6.6
+nltk==3.6.7
 sympy==1.9
