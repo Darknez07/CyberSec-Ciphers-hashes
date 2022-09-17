@@ -3,7 +3,7 @@ from cryptozen.Ceaser_Cipher import Ceaser,letters
 from cryptozen import Files
 import os
 import argparse
-#shift to argparse
+# shift to argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--ceaser',action='store',type=int,help='Ceaser cipher with specified number')
