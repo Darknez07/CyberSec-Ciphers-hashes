@@ -61,7 +61,7 @@ class Plots:
             if show:
                 plt.show()
             else:
-                return f
+                return f.values()
 
     def analyze_with_file(self, file: str, return_words = False, return_freq = True):
         if file == "":
