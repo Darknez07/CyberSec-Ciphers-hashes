@@ -55,9 +55,9 @@ class Plots:
             raise Exception("Plot a graph first with using draw() function")
         if self.analyze:
             words = nltk.word_tokenize(self.message)
-            f = nltk.probability.FreqDist(word.lower() for word in words).values()
-            plt.bar(range(len(f)),f,color='b')
-            plt.xticks(range(len(f)),list(set(words)),rotation=90)
+            f = nltk.probability.FreqDist(word.lower() for word in words)
+            plt.bar(range(len(f)),f.values(),color='b')
+            plt.xticks(range(len(set(words))),list(set(words)),rotation=45,fontsize=5,rotation_mode='anchor',ha='right')
             if show:
                 plt.show()
             else:
@@ -71,6 +71,8 @@ class Plots:
         f = open(file)
         wrds = nltk.sent_tokenize(f.read())
         f.close()
+        self.draw(" ".join(wrds),show=True)
+        self.analysis(" ".join(wrds), show = True)
         if return_words:
             return wrds
         freq = nltk.FreqDist(words.lower() for words in wrds).values()

@@ -53,7 +53,7 @@ class Affine:
             )
 
     def encrypt(self, message):
-        if message is "":
+        if message == "":
             raise Exception("Enter a proper message to encrypt")
         self.run()
         for sym in message:
@@ -64,7 +64,7 @@ class Affine:
 
     def decrypt(self, message):
         # self.run()
-        if message is "":
+        if message == "":
             raise Exception("Enter a proper message to decrypt")
         self.extract_key()
         self.get_inv()
