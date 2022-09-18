@@ -1,34 +1,34 @@
 from cryptozen.Transposition import Transpose
 from cryptozen.Ceaser_Cipher import Ceaser,letters
 from cryptozen import Files
-import os
 import argparse
 from cryptozen.distribution import Plots
+def main():
 # shift to argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--ceaser',action='store',type=int,help='Ceaser cipher with specified number')
+    parser.add_argument('--transpose',action='store',type=int)
+    parser.add_argument('--plot',action="store",type=str,help='Enter a message to see distributin',metavar='P')
+    args = parser.parse_args()
+    print(args.ceaser)
+    print(args.transpose)
+    print(args.plot)
+    if args.ceaser:
+        cipher = Ceaser(args.ceaser)
+        print(cipher.encrypt())
+    elif args.transpose:
+        cipher = Transpose(args.transpose)
+        print(cipher.encrypt())
+    elif args.plot:
+        cipher = Plots()
+        if ".txt" in args.plot:
+            print(cipher.analyze_with_file(args.plot))
+        else:
+            cipher.draw(args.plot,show=True,types="density")
+            cipher.analysis(show=True)
 
-parser = argparse.ArgumentParser()
-parser.add_argument('--ceaser',action='store',type=int,help='Ceaser cipher with specified number')
-parser.add_argument('--transpose',action='store',type=int)
-parser.add_argument('--plot',action="store",type=str,help='Enter a message to see distributin',metavar='P')
-args = parser.parse_args()
-print(args.ceaser)
-print(args.transpose)
-print(args.plot)
-
-if args.ceaser:
-    cipher = Ceaser(args.ceaser)
-    print(cipher.encrypt())
-elif args.transpose:
-    cipher = Transpose(args.transpose)
-    print(cipher.encrypt())
-elif args.plot:
-    cipher = Plots()
-    if ".txt" in args.plot:
-        print(cipher.analyze_with_file(args.plot))
-    else:
-        cipher.draw(args.plot,show=True,types="density")
-        cipher.analysis(show=True)
-
+if __name__ == "__main__":
+    main()
 # done = False
 
 # try:
