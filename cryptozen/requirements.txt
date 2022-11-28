@@ -1,4 +1,4 @@
-matplotlib==3.6.1
+matplotlib==3.6.2
 pprintpp==0.4.0
 simplejson
 coverage==6.5.0
