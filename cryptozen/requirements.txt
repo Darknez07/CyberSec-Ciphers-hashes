@@ -1,7 +1,7 @@
 matplotlib==3.7.1
 pprintpp==0.4.0
 simplejson
-coverage==7.2.1
+coverage==7.2.7
 scipy
 nltk==3.7
 sympy==1.10.1
